@@ -1,9 +1,24 @@
-# Scoop Bucket Template
+# bitoolean's Scoop bucket - warning: this is unfinished untested work in progress. not ready to use safely.
 
 <!-- Uncomment the following line after replacing placeholders -->
 <!-- [![Tests](https://github.com/<username>/<bucketname>/actions/workflows/ci.yml/badge.svg)](https://github.com/<username>/<bucketname>/actions/workflows/ci.yml) [![Excavator](https://github.com/<username>/<bucketname>/actions/workflows/excavator.yml/badge.svg)](https://github.com/<username>/<bucketname>/actions/workflows/excavator.yml) -->
 
-Template bucket for [Scoop](https://scoop.sh), the Windows command-line installer.
+## What is this?
+
+Currently being worked-on app manifest bucket for [Scoop](https://scoop.sh), the Windows command-line installer.
+
+Third-party application buckets such as this one allow extending the list of supported applications in the Scoop package manager.
+
+I'm adding support for applications I couldn't find Scoop manifests for elsewhere.
+
+
+
+
+
+$$ Feel free to ignore the following information
+- it's the default bucket introductory instructions mostly only useful to myself as the responsible for providing this bucket.
+
+
 
 ## How do I use this template?
 
