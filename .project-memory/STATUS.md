@@ -10,7 +10,7 @@ manifests.
 
 - Added `bucket/git-updater.json` for TeeJS/git-updater v0.2.6, supporting x64
   and ARM64.
-- Added `bucket/LocalDesktopStore-Portable.json` for SysAdminDoc/LocalDesktopStore
+- Added `bucket/local-desktop-store.json` for SysAdminDoc/LocalDesktopStore
   v0.3.2. Its pre-install guard reports a missing .NET 9 Desktop Runtime
   explicitly.
 - Both manifest files parse as JSON. The release tags, asset names, and initial

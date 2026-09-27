@@ -1,5 +1,16 @@
 # Decisions
 
+## Manifest naming convention
+
+Scoop package and manifest names follow the official Scoop guidelines and community standard conventions:
+- Use **kebab-case** (all-lowercase letters, digits, and hyphens `-`).
+- Separate compound words or title-cased upstream product names with hyphens (e.g. `LocalDesktopStore` -> `local-desktop-store`).
+- Keep package names concise and avoid redundant suffixes like `-Portable` or `-standalone` unless differentiating multiple packaging variants in the same bucket (portable is already the default Scoop expectation).
+
+## Workflow convention
+
+- Whenever the user confirms changes, commit and push directly to the remote repository.
+
 ## GitHub release-asset hashes
 
 For GitHub-hosted release assets, use GitHub's immutable `asset.digest` as the
@@ -21,7 +32,7 @@ release-page markup or downloading a release solely to calculate its checksum.
 
 ## LocalDesktopStore packaging
 
-`bucket/LocalDesktopStore-Portable.json` targets
+`bucket/local-desktop-store.json` targets
 `LocalDesktopStore-v$version-win-x64.zip`. It is the plain
 framework-dependent, portable archive and does not require elevation. It
 requires the .NET 9 Desktop Runtime for Windows x64. The project also ships
