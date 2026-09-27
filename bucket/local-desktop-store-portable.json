@@ -1,0 +1,33 @@
+{
+    "version": "0.3.2",
+    "description": "Private Windows app catalog sourced from GitHub Releases",
+    "homepage": "https://github.com/SysAdminDoc/LocalDesktopStore",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/SysAdminDoc/LocalDesktopStore/releases/download/v0.3.2/LocalDesktopStore-win-Portable.zip",
+            "hash": "b52bc0fc39864d43403da927456df737b89b025afcd399c28e83d141a269704c"
+        }
+    },
+    "bin": "LocalDesktopStore.exe",
+    "shortcuts": [
+        [
+            "LocalDesktopStore.exe",
+            "LocalDesktopStore"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/SysAdminDoc/LocalDesktopStore"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/SysAdminDoc/LocalDesktopStore/releases/download/v$version/LocalDesktopStore-win-Portable.zip",
+                "hash": {
+                    "url": "https://api.github.com/repos/SysAdminDoc/LocalDesktopStore/releases/tags/v$version",
+                    "jsonpath": "$.assets[?(@.name == 'LocalDesktopStore-win-Portable.zip')].digest"
+                }
+            }
+        }
+    }
+}
