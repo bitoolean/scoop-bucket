@@ -48,3 +48,16 @@ The manifest notes explicitly document that the application's runtime data and
 downloaded app catalog reside in `%LOCALAPPDATA%\LocalDesktopStore` and are
 not portable across systems. The Velopack portable variant is intentionally
 omitted from the bucket.
+
+## Linkquisition packaging
+
+`bucket/linkquisition.json` targets `Linkquisition_Windows_amd64.zip` (the
+non-installer portable archive from Strobotti/linkquisition).
+
+- **Hardware Acceleration / OpenGL DLL**: The release archive bundles Mesa's
+  software OpenGL fallback (`opengl32.dll`). The manifest removes `opengl32.dll`
+  via `post_install` so the application utilizes the system's hardware GPU drivers.
+  The manifest description explicitly notes that a GPU is required.
+- **Default Browser Registration**: Notes explain that running
+  `linkquisition set-default` registers URL capabilities and launches Windows
+  Default Apps settings for confirmation.
