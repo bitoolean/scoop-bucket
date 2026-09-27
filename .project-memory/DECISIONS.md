@@ -58,6 +58,6 @@ non-installer portable archive from Strobotti/linkquisition).
   software OpenGL fallback (`opengl32.dll`). The manifest removes `opengl32.dll`
   via `post_install` so the application utilizes the system's hardware GPU drivers.
   The manifest description explicitly notes that a GPU is required.
-- **Default Browser Registration**: Notes explain that running
-  `linkquisition set-default` registers URL capabilities and launches Windows
-  Default Apps settings for confirmation.
+- **Default Browser Registration**: Notes explain that setting Linkquisition
+  as default browser / HTTP handler can be done via `linkquisition set-default`
+  or directly from its graphical interface.

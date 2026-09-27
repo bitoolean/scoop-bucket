@@ -3,10 +3,7 @@
     "description": "Fast, configurable browser picker and URL dispatcher (requires a GPU for hardware-accelerated rendering)",
     "homepage": "https://github.com/Strobotti/linkquisition",
     "license": "GPL-3.0-only",
-    "notes": [
-        "To set Linkquisition as your default browser / HTTP handler, run: 'linkquisition set-default'",
-        "Windows Settings will open to the Default Apps page where you will need to confirm Linkquisition as default."
-    ],
+    "notes": "To set Linkquisition as default browser / HTTP handler, run 'linkquisition set-default' or use the option in its graphical interface.",
     "architecture": {
         "64bit": {
             "url": "https://github.com/Strobotti/linkquisition/releases/download/v3.1.9/Linkquisition_Windows_amd64.zip",
