@@ -3,7 +3,10 @@
     "description": "Private Windows app catalog sourced from GitHub Releases",
     "homepage": "https://github.com/SysAdminDoc/LocalDesktopStore",
     "license": "MIT",
-    "notes": "Requires the .NET 9 Desktop Runtime for Windows x64. Installation stops with a clear error when it is unavailable.",
+    "notes": [
+        "Requires the .NET 9 Desktop Runtime for Windows x64.",
+        "Application data and downloaded apps are stored in '%LOCALAPPDATA%\\LocalDesktopStore' and are not portable across systems."
+    ],
     "architecture": {
         "64bit": {
             "url": "https://github.com/SysAdminDoc/LocalDesktopStore/releases/download/v0.3.2/LocalDesktopStore-v0.3.2-win-x64.zip",

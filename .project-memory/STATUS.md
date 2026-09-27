@@ -12,7 +12,7 @@ manifests.
   and ARM64.
 - Added `bucket/local-desktop-store.json` for SysAdminDoc/LocalDesktopStore
   v0.3.2. Its pre-install guard reports a missing .NET 9 Desktop Runtime
-  explicitly.
+  explicitly, and its notes document non-portable LocalAppData storage.
 - Both manifest files parse as JSON. The release tags, asset names, and initial
   SHA-256 values were verified through GitHub's Releases API.
 

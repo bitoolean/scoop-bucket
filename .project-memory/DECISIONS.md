@@ -9,7 +9,8 @@ Scoop package and manifest names follow the official Scoop guidelines and commun
 
 ## Workflow convention
 
-- Whenever the user confirms changes, commit and push directly to the remote repository.
+- When confirmed changes include project files (e.g. manifests, scripts, configurations, docs), commit and push them along with any accompanying `.project-memory` updates to the remote repository.
+- Changes made solely to the `.project-memory` directory do not trigger a push on their own.
 
 ## GitHub release-asset hashes
 
@@ -34,13 +35,16 @@ release-page markup or downloading a release solely to calculate its checksum.
 
 `bucket/local-desktop-store.json` targets
 `LocalDesktopStore-v$version-win-x64.zip`. It is the plain
-framework-dependent, portable archive and does not require elevation. It
-requires the .NET 9 Desktop Runtime for Windows x64. The project also ships
-Velopack and MSI variants; choose one of those only if their installation and
-update behavior is deliberately desired in Scoop.
+framework-dependent build and does not require elevation. It
+requires the .NET 9 Desktop Runtime for Windows x64.
 
 The manifest uses a `pre_install` guard rather than a Scoop `depends` entry
 because the official Versions bucket has no .NET 9 Desktop Runtime manifest. The guard
 checks `dotnet --list-runtimes` for `Microsoft.WindowsDesktop.App 9.0.*` and
 throws a clear actionable error when it is absent, including in callers that
 surface Scoop installation failures.
+
+The manifest notes explicitly document that the application's runtime data and
+downloaded app catalog reside in `%LOCALAPPDATA%\LocalDesktopStore` and are
+not portable across systems. The Velopack portable variant is intentionally
+omitted from the bucket.
