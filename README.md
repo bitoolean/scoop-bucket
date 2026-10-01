@@ -1,57 +1,28 @@
-# bitoolean's Scoop bucket - warning: this is unfinished untested work in progress. not ready to use safely.
+# bitoolean's Scoop bucket
 
-<!-- Uncomment the following line after replacing placeholders -->
-<!-- [![Tests](https://github.com/<username>/<bucketname>/actions/workflows/ci.yml/badge.svg)](https://github.com/<username>/<bucketname>/actions/workflows/ci.yml) [![Excavator](https://github.com/<username>/<bucketname>/actions/workflows/excavator.yml/badge.svg)](https://github.com/<username>/<bucketname>/actions/workflows/excavator.yml) -->
+A third-party [Scoop](https://scoop.sh) bucket for Windows applications and
+utilities.
 
-## What is this?
+## Applications
 
-Currently being worked-on app manifest bucket for [Scoop](https://scoop.sh), the Windows command-line installer.
+| Manifest | Manifest version | Architecture | Application |
+| --- | --- | --- | --- |
+| [git-updater](bucket/git-updater.json) | 0.2.6 | 64-bit, ARM64 | [On-demand desktop GUI for updating apps from GitHub releases](https://github.com/TeeJS/git-updater) |
+| [linkquisition](bucket/linkquisition.json) | 3.1.10 | 64-bit | [Browser picker and URL dispatcher](https://github.com/Strobotti/linkquisition); GPU required for hardware-accelerated rendering. |
+| [local-desktop-store](bucket/local-desktop-store.json) | 0.3.2 | 64-bit | [Private Windows app catalog sourced from GitHub Releases](https://github.com/SysAdminDoc/LocalDesktopStore); requires the .NET 9 Desktop Runtime. Its app data is stored in LocalAppData. |
+| [ycb](bucket/ycb.json) | 1.0.26 | 64-bit | [YourCopilotBrowser](https://github.com/Tomcreations/YourCopilotBrowser); the manifest extracts the `YCB-Setup.exe` release directly rather than using the ZIP wrapper around that executable. Requires WebView2. |
+| [ycb-lean](bucket/ycb-lean.json) | 1.0.26 | 64-bit | YourCopilotBrowser with a nonstandard manifest conversion from self-contained to framework-dependent deployment. It rewrites runtime metadata and removes bundled runtime assets; requires .NET 8 Desktop Runtime 8.0.27 or later and WebView2. |
 
-Third-party application buckets such as this one allow extending the list of supported applications in the Scoop package manager.
+## Install
 
-I'm adding support for applications I couldn't find Scoop manifests for elsewhere.
-
-
-
-
-
-$$ Feel free to ignore the following information
-- it's the default bucket introductory instructions mostly only useful to myself as the responsible for providing this bucket.
-
-
-
-## How do I use this template?
-
-1. Generate your own copy of this repository with the "Use this template"
-   button.
-2. Allow all GitHub Actions:
-   - Navigate to `Settings` - `Actions` - `General` - `Actions permissions`.
-   - Select `Allow all actions and reusable workflows`.
-   - Then `Save`.
-3. Workflow permissions:
-   - Navigate to `Settings` - `Actions` - `General` - `Workflow permissions`.
-   - Ensure `Read repository contents and packages permissions` is selected.
-   - Then `Save`.
-4. Document the bucket in `README.md`.
-5. Replace the placeholder repository string in `bin/auto-pr.ps1`.
-6. Create new manifests by copying `bucket/app-name.json.template` to
-   `bucket/<app-name>.json`.
-7. Commit and push changes.
-8. If you'd like your bucket to be indexed on `https://scoop.sh`, add the
-   topic `scoop-bucket` to your repository.
-
-## How do I install these manifests?
-
-After manifests have been committed and pushed, run the following:
+Add the bucket and install an application by its manifest name:
 
 ```pwsh
-scoop bucket add <bucketname> https://github.com/<username>/<bucketname>
-scoop install <bucketname>/<manifestname>
+scoop bucket add bitoolean https://github.com/bitoolean/scoop-bucket
+scoop install bitoolean/git-updater
 ```
 
-## How do I contribute new manifests?
+## Contributing
 
-To make a new manifest contribution, please read the [Contributing
-Guide](https://github.com/ScoopInstaller/.github/blob/main/.github/CONTRIBUTING.md)
-and [App Manifests](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)
-wiki page.
+For manifest contributions, see the [Scoop contributing guide](https://github.com/ScoopInstaller/.github/blob/main/.github/CONTRIBUTING.md)
+and the [App Manifests wiki](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests).

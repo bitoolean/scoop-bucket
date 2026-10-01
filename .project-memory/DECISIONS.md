@@ -61,3 +61,24 @@ non-installer portable archive from Strobotti/linkquisition).
 - **Default Browser Registration**: Notes explain that setting Linkquisition
   as default browser / HTTP handler can be done via `linkquisition set-default`
   or directly from its graphical interface.
+
+## YourCopilotBrowser packaging
+
+Both YCB manifests use the upstream `YCB-Setup.exe` release asset with Scoop's
+7-Zip extractor. The upstream `YCB-Setup.zip` is an outer ZIP containing the
+same installer executable, so the manifests avoid that extra wrapper.
+
+`ycb-lean` is a manifest-level workaround, not a separate upstream
+framework-dependent build. Its `pre_install` checks for the .NET 8 Desktop
+Runtime, rewrites the bundled runtime configuration to framework-dependent
+mode, removes runtime-pack `runtime` and `native` assets and metadata, and
+cleans installer artifacts and localization directories. The current release
+requires .NET 8 Desktop Runtime 8.0.27 or later. Recheck these assumptions when
+the upstream release format or runtime-pack metadata changes.
+
+## GitHub Actions token permissions
+
+Keep the repository's default `GITHUB_TOKEN` permission read-only. The
+Excavator workflow explicitly requests `contents: write`; GitHub applies
+workflow/job permissions after the default, so updates get only the write
+access they need without granting it to every workflow by default.

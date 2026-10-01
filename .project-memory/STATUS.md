@@ -2,26 +2,37 @@
 
 ## Purpose
 
-This repository is a personal Scoop bucket and companion setup scripts. The
-installable manifests live in `bucket/`; `TODO/` holds prospective or unfinished
-manifests.
+This repository is a personal Scoop bucket and companion scripts. Installable
+manifests live in `bucket/`; unapproved proposals belong in
+`.project-memory/drafts/`.
 
-## Current Work
+## Current Manifests
 
-- Added `bucket/git-updater.json` for TeeJS/git-updater v0.2.6, supporting x64
-  and ARM64.
-- Added `bucket/local-desktop-store.json` for SysAdminDoc/LocalDesktopStore
-  v0.3.2. Its pre-install guard reports a missing .NET 9 Desktop Runtime
-  explicitly, and its notes document non-portable LocalAppData storage.
-- Added `bucket/linkquisition.json` for Strobotti/linkquisition v3.1.9,
-  targeting the non-setup zip and removing the bundled Mesa `opengl32.dll` on install.
-- Manifest files parse as JSON. The release tags, asset names, and initial
-  SHA-256 values were verified through GitHub's Releases API.
+- `git-updater` 0.2.6: x64 and ARM64.
+- `linkquisition` 3.1.10: x64 portable archive; post-install removes its bundled
+  Mesa OpenGL fallback DLL.
+- `local-desktop-store` 0.3.2: x64; requires the .NET 9 Desktop Runtime and
+  stores app data under LocalAppData.
+- `ycb` 1.0.26: unpacks the upstream `YCB-Setup.exe` directly. The release ZIP
+  is an outer ZIP containing that same executable.
+- `ycb-lean` 1.0.26: transforms the self-contained YCB package into a
+  framework-dependent install by rewriting runtime configuration and removing
+  runtime-pack files and metadata. Requires .NET 8 Desktop Runtime 8.0.27 or
+  later.
 
-## Next Tasks
+## Validation
 
-- Revisit LocalDesktopStore's runtime requirement when the upstream project
-  moves away from .NET 9, which reaches end of support in November 2026.
-- Validate new manifests with Scoop's bucket tests where an appropriate Scoop
-  development environment is available. The local Scoop installation does not
-  provide the `checkver` command and its user config is outside this workspace.
+- The repository `bin/checkver.ps1` wrapper successfully ran the installed
+  Scoop core `bin/checkver.ps1` against all five manifests. `checkver` is not a
+  registered `scoop` command in this installation.
+- CI passed on commit `976935d`.
+- The YCB Lean cleanup was tested through an isolated debug manifest: 238
+  runtime-pack files, runtime-pack metadata, the `runtimes` directory, and
+  installer-created `$` directories were removed from the debug install.
+
+## Ongoing Work
+
+- Revisit LocalDesktopStore's .NET 9 runtime requirement before support ends in
+  November 2026 or when upstream moves to a newer runtime.
+- Revalidate YCB Lean's packaging conversion when upstream changes the release
+  archive or .NET runtime-pack layout.
