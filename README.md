@@ -1,5 +1,8 @@
 # bitoolean's Scoop bucket
 
+[![CI](https://github.com/bitoolean/scoop-bucket/actions/workflows/ci.yml/badge.svg)](https://github.com/bitoolean/scoop-bucket/actions/workflows/ci.yml)
+[![Excavator](https://github.com/bitoolean/scoop-bucket/actions/workflows/excavator.yml/badge.svg)](https://github.com/bitoolean/scoop-bucket/actions/workflows/excavator.yml)
+
 A third-party [Scoop](https://scoop.sh) bucket for Windows applications and
 utilities.
 
