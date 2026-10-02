@@ -11,10 +11,10 @@ utilities.
 | Manifest | Architecture | Application |
 | --- | --- | --- |
 | [git-updater](bucket/git-updater.json) | 64-bit, ARM64 | [On-demand desktop GUI for updating apps from GitHub releases](https://github.com/TeeJS/git-updater) |
-| [linkquisition](bucket/linkquisition.json) | 64-bit | [Browser picker and URL dispatcher](https://github.com/Strobotti/linkquisition); GPU required for hardware-accelerated rendering. |
+| [linkquisition](bucket/linkquisition.json) | 64-bit | [Browser picker and URL dispatcher](https://github.com/Strobotti/linkquisition) |
 | [local-desktop-store](bucket/local-desktop-store.json) | 64-bit | [Private Windows app catalog sourced from GitHub Releases](https://github.com/SysAdminDoc/LocalDesktopStore); requires the .NET 9 Desktop Runtime. Its app data is stored in LocalAppData. |
-| [ycb](bucket/ycb.json) | 64-bit | [YourCopilotBrowser](https://github.com/Tomcreations/YourCopilotBrowser); the manifest extracts the `YCB-Setup.exe` release directly rather than using the ZIP wrapper around that executable. Requires WebView2. |
-| [ycb-lean](bucket/ycb-lean.json) | 64-bit | YourCopilotBrowser with a nonstandard manifest conversion from self-contained to framework-dependent deployment. It rewrites runtime metadata and removes bundled runtime assets; requires .NET 8 Desktop Runtime 8.0.27 or later and WebView2. |
+| [ycb](bucket/ycb.json) | 64-bit | [YourCopilotBrowser](https://github.com/Tomcreations/YourCopilotBrowser), a lightweight Windows browser running on top of the Microsoft Edge WebView2 Runtime. |
+| [ycb-lean](bucket/ycb-lean.json) | 64-bit | YourCopilotBrowser without its bundled .NET runtime; requires the .NET 8 Desktop Runtime and WebView2. |
 
 ## Install
 
